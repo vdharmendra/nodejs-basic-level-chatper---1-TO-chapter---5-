@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #weatherResult {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Select a City to Get Weather</h2>
+        <!-- <select id="citySelect">
+            <option value="Mumbai">Mumbai</option>
+            <option value="New York">New York</option>
+            <option value="London">London</option>
+            <option value="Tokyo">Tokyo</option>
+        </select>
+        <button onclick="getWeather()">Get Weather</button>
+
+        <div id="weatherResult"></div> -->
+        <input type="text" id="cityInput" placeholder="Enter city name" />
+        <button onclick="getWeather()">Get Weather</button>
+
+        <div id="weatherResult"></div>
+    </div>
+
+    <script>
+        // function getWeather() {
+        //     const city = document.getElementById('citySelect').value;
+        //     fetch(`/weather?city=${city}`)
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             if (data.error) {
+        //                 document.getElementById('weatherResult').innerHTML = `<p style="color: red;">${data.error}</p>`;
+        //             } else {
+        //                 document.getElementById('weatherResult').innerHTML = `
+        //                     <h3>Weather in ${data.name}, ${data.country}</h3>
+        //                     <p>Sky: ${data.weather.main}</p>
+        //                     <p>Temp: ${data.temp} °C</p>
+        //                     <p><img src="${data.iconUrl}" alt="Weather icon"></p>
+        //                     <p>Description: ${data.weather.description}</p>
+        //                 `;
+        //             }
+        //         })
+        //         .catch(err => {
+        //             console.error('Error fetching weather:', err);
+        //             document.getElementById('weatherResult').innerHTML = `<p style="color: red;">Error fetching weather data.</p>`;
+        //         });
+        // }
+
+
+        function getWeather() {
+            const city = document.getElementById("cityInput").value;
+
+            fetch(`/weather?city=${city}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("weatherResult").innerText = data.error;
+                        return;
+                    }
+
+                    document.getElementById("weatherResult").innerHTML = `
+                        <h3>${data.name}, ${data.country}</h3>
+                        <p>Temperature: ${data.temp} °C</p>
+                        <p>Weather: ${data.weather.main}</p>
+                        <p>${data.weather.description}</p>
+                        <img src="${data.iconUrl}" />
+                    `;
+                });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f8f9fa;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #343a40;
+}
+
+/* Card styles */
+.task-card {
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.task-card .form-check-label {
+    font-size: 1.1rem;
+}
+
+/* Input focus effect */
+form .form-control:focus {
+    box-shadow: 0 0 5px rgba(102, 166, 255, 0.5);
+    border-color: #66a6ff;
+}
+
+/* Completed task styling */
+.completed {
+    text-decoration: line-through;
+    color: #6c757d;  /* Gray text color for completed tasks */
+    opacity: 0.7;  /* Slightly faded text */
+}
+
+/* Styling the checkbox to create visual feedback */
+/* This applies the line-through when checkbox is checked */
+.task-checkbox:checked + .form-check-label {
+    text-decoration: line-through;
+    color: #6c757d;  /* Makes the text gray when checked */
+    opacity: 0.7;     /* Slightly fade the completed task */
+}
+
+/* Optional: Style the checkbox for better visual feedback */
+.task-checkbox {
+    cursor: pointer;
+}

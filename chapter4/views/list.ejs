@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing the data from client side to server | Nodejs Application</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1><%= kindofDay %></h1>
+
+            <% if (newListItems.length === 0) { %>
+                <p class="empty">No items yet. Add one below 👇</p>
+            <% } else { %>
+                <ul>
+                    <% for (var i = 0; i < newListItems.length; i++) { %>
+                        <li>
+                            <input type="checkbox" id="item-<%= i %>">
+                            <label class="item-text" for="item-<%= i %>">
+                                <%= newListItems[i] %>
+                            </label>
+                        </li>
+                    <% } %>
+                </ul>
+            <% } %>
+
+            <form action="/" method="post">
+                <input 
+                    type="text" 
+                    name="newItem" 
+                    placeholder="Enter a new item..." 
+                    required
+                />
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
