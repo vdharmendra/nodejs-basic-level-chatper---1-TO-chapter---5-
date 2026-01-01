@@ -3,6 +3,14 @@
 A collection of beginner-friendly Node.js & Express projects created while learning backend development.
 Each project demonstrates core concepts like routing, templating, form handling, and server-side logic.
 
+- 
+👨‍💻 Author
+Virendra D. Verma
+<a href="https://www.linkedin.com/in/dharmendraverma95/" target="_blank">🧑‍💻 LinkedIn Profile </a> | <a href="https://www.behance.net/dhirukumar" target="_blank">🧑‍💻 Behance Profile </a>
+
+- 
+
+
 ### 🛠️ Technologies Used
 
 - Node.js
